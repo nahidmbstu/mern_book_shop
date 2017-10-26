@@ -7,7 +7,7 @@ import { saveBook } from '../actions/BookAction';
 class Addbook extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', email : '', price: '' };
+    this.state = { name: '', author : '', price: '' };
   }
 
   handleChange(event) {
@@ -17,13 +17,13 @@ class Addbook extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
      
-    var data = {}
-    data['name'] = this.state.name,
-    data['email'] = this.state.email, 
-    data['price'] = this.state.price
+    var book = {}
+    book['name'] = this.state.name,
+    book['author'] = this.state.author, 
+    book['price'] = this.state.price
 
 
-    this.props.dispatch(saveBook(data));
+    this.props.dispatch(saveBook(book));
   }
 
   render() {
@@ -45,7 +45,7 @@ class Addbook extends React.Component {
               <div className="form-group">
                 <label htmlFor="name" className="col-sm-2">author </label>
                 <div className="col-sm-8">
-                  <input type="text" name="email" id="email" className="form-control" value={this.state.email} onChange={this.handleChange.bind(this)}/>
+                  <input type="text" name="author" id="author" className="form-control" value={this.state.author} onChange={this.handleChange.bind(this)}/>
                 </div>
               </div>
               <div className="form-group">

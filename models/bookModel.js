@@ -9,10 +9,9 @@ var schemaOptions = {
 };
 
 var BookSchema = new Schema({
-    name:{ type: String, unique: false},
-    author:{ type: String, unique: false},
+    name:String, 
+    author:String, 
     price: Number
-   
     
   }, schemaOptions);
 

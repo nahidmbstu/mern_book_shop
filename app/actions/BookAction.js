@@ -2,14 +2,16 @@ import { browserHistory } from 'react-router';
 import axios from 'axios';
 
 
-export function saveBook(data) {
-  console.log(data)
+export function saveBook(book) {
+  console.log(book)
   return (dispatch) => {
 
-    return axios.post('/add-book/saveBook', {
+  return axios.post('/add_book/saveBook', {
       headers: { 'Content-Type': 'application/json' },
-      items: data
-    }).then(function (res) {  
+      book: book
+    })
+   
+  .then(function (res) {  
       browserHistory.push('/');
       console.log(res)
     }).catch(function (err) {

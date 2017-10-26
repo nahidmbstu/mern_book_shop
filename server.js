@@ -26,32 +26,11 @@ require('babel-polyfill');
 var contactController = require('./controllers/contact');
 var bookController = require('./controllers/bookController');
 
-
-//////////add-book/saveBook
-
-
-
-
-
-
 // React and Server-Side Rendering
 var routes = require('./app/routes');
 var configureStore = require('./app/store/configureStore').default;
 
 var app = express();
-
-
-//////////add-book/saveBook
-
-app.post('/add-book/saveBook', bookController.savebook);
-
-
-
-
-
-
-
-
 
 ///////////////////////////
 
@@ -82,7 +61,22 @@ if (app.get('env') === 'development') {
   app.use(require('webpack-hot-middleware')(compiler));
 }
 
+
+
+
+
+
 app.post('/contact', contactController.contactPost);
+
+
+app.post('/add_book/saveBook', bookController.savebook);
+
+
+
+
+
+
+
 
 // React server rendering
 app.use(function(req, res) {

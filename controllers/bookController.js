@@ -9,16 +9,17 @@ const fetch = require('node-fetch');
 
 
 exports.savebook = function (req, res) {
-  //var data = req.body.data
+
   console.log(" from book controller----------------")
-  //console.log(req)
-  console.log("==============================================")
-  console.log(req.body)
-  console.log(" from book controller----------------")
+
+
+  var books = req.body.book
+  console.log(books)
+
   var query = new Book({
-    name: "data.sferqerqeq",
-    author: "data.authorsfa",
-    price: 12 
+    name: books.name ,
+    author: books.author,
+    price: books.price 
   }).save(function (err, result) {
     if (err)
       res.send('Error');
