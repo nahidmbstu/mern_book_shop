@@ -10,7 +10,7 @@ lib-cov
 *.zip
 
 pids
-logs
+npm logs
 results
 tmp
 coverage
