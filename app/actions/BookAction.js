@@ -20,3 +20,25 @@ export function saveBook(book) {
     })
   }
 }
+
+
+export function getBooks() {
+  return (dispatch) => {
+    return axios.post('/booklist', {
+    }).then((res) => {
+       console.log("get basic user..........................")
+      console.log(res)
+      dispatch({
+        type: 'GET_BOOKS',
+        books: res.data
+      });
+    }).catch(function (err) {
+      dispatch({
+        type: 'GET_BOOKS_FAILURE',
+        messages: err
+      });
+
+      console.log(err)
+    });
+  }
+}

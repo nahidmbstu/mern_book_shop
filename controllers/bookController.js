@@ -27,3 +27,24 @@ exports.savebook = function (req, res) {
       res.send(result);
   });
 }
+
+
+
+
+exports.getbook = function (req, res) {
+  var ooo = {}
+  Book.find(ooo).sort({ createdAt: -1 }).exec(function (err, books) {
+
+    if (err) {
+      console.log("========================= Get LiteUser ERROR =========================")
+      console.log(err);
+      console.log("========================= Get LiteUser ERROR =========================")
+      res.json({ "error": "Error encountered. Please try again later" }) // Send an error message to the client indicating an error
+    } else {
+      console.log("get basic user..........................")
+      console.log(books)
+      res.send(books);
+      console.log("get basic user..........................")
+    }
+  })
+}

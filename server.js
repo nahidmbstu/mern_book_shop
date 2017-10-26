@@ -64,7 +64,7 @@ if (app.get('env') === 'development') {
 
 
 
-
+app.post('/booklist', bookController.getbook);
 
 app.post('/contact', contactController.contactPost);
 

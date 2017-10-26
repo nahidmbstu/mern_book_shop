@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Addbook from './components/addbook';
 import NotFound from './components/NotFound';
+import booklist from './components/Booklist';
 
 export default function getRoutes(store) {
   const clearMessages = () => {
@@ -17,6 +18,8 @@ export default function getRoutes(store) {
       <IndexRoute component={Home} onLeave={clearMessages}/>
       <Route path="/contact" component={Contact} onLeave={clearMessages}/>
       <Route path="/add_book" component={Addbook} onLeave={clearMessages}/>
+       <Route path="/booklist" component={booklist} onLeave={clearMessages}/>
+      
       <Route path="*" component={NotFound} onLeave={clearMessages}/>
     </Route>
   );
