@@ -12,6 +12,18 @@
 - **Authentication**: 
 - **Deployment**: none
 
+### Running 
+
+- git clone repo link
+- cd folder
+- npm install --save 
+- change the env file 
+- npm run build && npm start
+
+### Running 
+
+- if you dont find any module , then run npm install module name
+
 ### License
 The MIT License (MIT)
 
