@@ -1,33 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { getBooks } from '../actions/BookAction';
+import { getBooks, deleteBook } from '../actions/BookAction';
 
 
 class Booklist extends React.Component {
 
-   constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
 
     }
-      console.log("get basic user..........................")
+    console.log("get basic user..........................")
+
+
+
   }
 
 
-    
-
-
-
-
-
-
-   componentDidMount() {
+  componentDidMount() {
     this.props.dispatch(getBooks());
+
+
   }
+  deleteFunc(cell) {
+    console.log("button pressed" + cell)
+    var id = cell;
+    this.props.dispatch(deleteBook(id));
+   
+  }
+
+  deleteFormatter(cell, row, id) {
+    var holder = "/Booklist/edit/" + cell;
+    return <button onClick={this.deleteFunc.bind(this, cell)} className="btn btn-info btn-sm"> Delete </button>;
+  }
+
 
 
   render() {
@@ -46,22 +56,27 @@ class Booklist extends React.Component {
 
 
 
+
+
+
+
     return (
 
       <div className="container">
-       
+
         <div className="row">
 
-      
 
-         <BootstrapTable data={products} striped hover pagination={true} search>
+
+          <BootstrapTable data={products} striped hover pagination={true} search>
             <TableHeaderColumn isKey dataField='_id'>Product ID</TableHeaderColumn>
 
             <TableHeaderColumn dataField='name'>Book Name</TableHeaderColumn>
             <TableHeaderColumn dataField='author'>Author</TableHeaderColumn>
             <TableHeaderColumn dataField='price'>Price</TableHeaderColumn>
-             <TableHeaderColumn dataField='_id' dataFormat={editFormatter}>Edit Book</TableHeaderColumn>
-            
+            <TableHeaderColumn dataField='_id' dataFormat={editFormatter}>Edit Book</TableHeaderColumn> 
+            <TableHeaderColumn dataField='_id' dataFormat={this.deleteFormatter.bind(this)}>Delete Book</TableHeaderColumn>
+
 
 
           </BootstrapTable>
@@ -77,7 +92,7 @@ class Booklist extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-  
+
     books: state.bookReduecer.books
   };
 };

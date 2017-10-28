@@ -76,7 +76,7 @@ app.get("/booklist/getOneBook/:id", bookController.getOneBook);
 
 app.post("/booklist/edit/editBook", bookController.editBook);
 
-
+app.get('/booklist/deleteBook/:id', bookController.DeleteOneBook);
 
 
 // React server rendering

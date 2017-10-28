@@ -109,3 +109,21 @@ exports.editBook = function (req, res) {
     }
   })
 }
+
+
+exports.DeleteOneBook = function (req, res) {
+
+
+  console.log(req.params.id);
+
+
+    Book.findByIdAndRemove(req.params.id, function (err, book) {
+        if (err) {
+            console.log(err);
+        } else {
+            var msg = "book Deleted"
+            res.send({ "msg": msg });
+        }
+    })
+}
+

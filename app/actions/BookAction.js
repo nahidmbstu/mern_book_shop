@@ -118,3 +118,28 @@ export function editBook(obj) {
   }
 }
 
+
+
+export function deleteBook(id) {
+
+  console.log(id)
+  return (dispatch) => {
+    dispatch({
+      type: 'CLEAR_MESSAGES'
+    });
+    return axios.get('/booklist/deleteBook/' + id, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }).then(function (res) {
+      browserHistory.push('/');
+      console.log(" response from delete action")
+      console.log(res)
+    }).catch(function (err) {
+      console.log(" err")
+      console.log(err)
+    })
+  };
+}
+
+
