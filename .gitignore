@@ -8,6 +8,7 @@ lib-cov
 *.gz
 *.swp
 *.zip
+*.vscode
 
 pids
 npm logs
