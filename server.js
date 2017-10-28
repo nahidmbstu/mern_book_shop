@@ -66,14 +66,15 @@ if (app.get('env') === 'development') {
 
 app.post('/booklist', bookController.getbook);
 
-app.post('/contact', contactController.contactPost);
+app.post('/', bookController.getbookhome);
 
+app.post('/contact', contactController.contactPost);
 
 app.post('/add_book/saveBook', bookController.savebook);
 
+app.get("/booklist/getOneBook/:id", bookController.getOneBook);
 
-
-
+app.post("/booklist/edit/editBook", bookController.editBook);
 
 
 

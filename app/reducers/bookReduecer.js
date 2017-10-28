@@ -7,7 +7,7 @@ export default function reducer(state = {
             return Object.assign({}, state, {
                 books: action.books
             });
-        case 'GET_ONE_BASIC_USER':
+        case 'GET_ONE_BOOK':
             return Object.assign({}, state, {
                 book: action.book
             });

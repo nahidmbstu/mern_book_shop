@@ -4,9 +4,9 @@ import Messages from './Messages';
 import { Link } from 'react-router';
 
 
-import { getBooks } from '../actions/BookAction';
+import { getBooksHome } from '../actions/BookAction';
 
-
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 
 class Home extends React.Component {
@@ -16,6 +16,10 @@ class Home extends React.Component {
     this.state = {
 
     }
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getBooksHome());
   }
 
 
@@ -33,7 +37,23 @@ class Home extends React.Component {
 
         <Link to={`/add_book`} className="btn btn-info btn-lg"> Add a New Book</Link>
         <hr/>
-        <Link to={`/booklist`} className="btn btn-info btn-lg"> booklist</Link>
+        <Link to={`/booklist`} className="btn btn-info btn-lg"> booklist Edit</Link>
+
+         <BootstrapTable data={products} striped hover pagination={true} search>
+            <TableHeaderColumn isKey dataField='_id'>Product ID</TableHeaderColumn>
+
+            <TableHeaderColumn dataField='name'>Book Name</TableHeaderColumn>
+            <TableHeaderColumn dataField='author'>Author</TableHeaderColumn>
+            <TableHeaderColumn dataField='price'>Price</TableHeaderColumn>
+            
+
+
+          </BootstrapTable>
+
+
+
+
+
 
 
 
@@ -47,7 +67,8 @@ class Home extends React.Component {
 const mapStateToProps = (state) => {
   return {
     messages: state.messages,
-    books: state.books
+    books: state.bookReduecer.books
+    
   };
 };
 

@@ -48,3 +48,64 @@ exports.getbook = function (req, res) {
     }
   })
 }
+
+
+exports.getbookhome = function (req, res) {
+  var ooo = {}
+  Book.find(ooo).sort({ createdAt: -1 }).exec(function (err, books) {
+
+    if (err) {
+      console.log("========================= Get LiteUser ERROR =========================")
+      console.log(err);
+      console.log("========================= Get LiteUser ERROR =========================")
+      res.json({ "error": "Error encountered. Please try again later" }) // Send an error message to the client indicating an error
+    } else {
+      console.log("get basic user..........................")
+      console.log(books)
+      res.send(books);
+      console.log("get basic user..........................")
+    }
+  })
+}
+
+
+exports.getOneBook = function (req, res) {
+
+  Book.findById(req.params.id, function (err, book) {
+
+    if (err) {
+      console.log("========================= Get LiteUser ERROR =========================")
+      console.log(err);
+      console.log("========================= Get LiteUser ERROR =========================")
+      res.json({ "error": "Error encountered. Please try again later" }) // Send an error message to the client indicating an error
+    } else {
+      res.send(book);
+    }
+  })
+}
+
+
+exports.editBook = function (req, res) {
+
+  var data = req.body.obj
+  console.log(data)
+  var id = data.id;
+  var query = {
+    name: data.name,
+    author: data.author,
+    price: data.price
+    
+  }
+  
+  Book.findByIdAndUpdate(id, { $set: query },  function (err, book) {
+    if (err) {
+      console.log("========================= Upsert LiteUser ERROR =========================")
+      console.log(err);
+      console.log("========================= Upsert LiteUser ERROR =========================")
+      res.json({ "error": "Error encountered. Please try again later" })
+
+    } else {
+      res.json({ "success": "Book Eddddditttttttttttttttttdded" })
+    }
+  })
+}
