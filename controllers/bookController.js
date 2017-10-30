@@ -111,6 +111,16 @@ exports.editBook = function (req, res) {
 }
 
 
+exports.sellBook = function (req, res ,err) {
+
+  var data = req.body.obj
+  console.log(data)
+  res.send("book sold")
+    
+}
+
+
+
 exports.DeleteOneBook = function (req, res) {
 
 

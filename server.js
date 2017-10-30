@@ -78,6 +78,9 @@ app.post("/booklist/edit/editBook", bookController.editBook);
 
 app.get('/booklist/deleteBook/:id', bookController.DeleteOneBook);
 
+app.post("/booklist/sell/final", bookController.sellBook);
+
+
 
 // React server rendering
 app.use(function(req, res) {

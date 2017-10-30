@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import classnames from 'classnames';
-import { getOneBook,editBook } from '../actions/BookAction';
+import { getOneBook,sellBook } from '../actions/BookAction';
 //--------------------------------------------------------------------------
 class BookSell extends React.Component {
   constructor(props) {
@@ -41,8 +41,10 @@ class BookSell extends React.Component {
     obj["name"] = this.state.name
     obj["author"] = this.state.author
     obj["price"] = this.state.price
+    obj["customer_name"] = this.state.customer_name
+    obj["customer_phone"] = this.state.customer_phone
     
-    this.props.dispatch(editBook(obj))
+    this.props.dispatch(sellBook(obj))
   }
   //--------------------------------------------------------------------------
   render() {

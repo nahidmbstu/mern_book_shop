@@ -120,6 +120,28 @@ export function editBook(obj) {
 
 
 
+export function sellBook(obj) {
+  console.log(obj)
+  return (dispatch) => {
+
+    return axios.post('/booklist/sell/final', {
+      headers: { 'Content-Type': 'application/json' },
+      obj: obj
+    }).then(function (res) {
+      
+      console.log(" response from seelllllll  action")
+      console.log(res)
+    }).catch(function (err) {
+      console.log(" err")
+      console.log(err)
+    })
+  }
+}
+
+
+
+
+
 export function deleteBook(id) {
 
   console.log(id)
