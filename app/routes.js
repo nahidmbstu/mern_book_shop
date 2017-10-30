@@ -7,6 +7,7 @@ import Addbook from './components/addbook';
 import NotFound from './components/NotFound';
 import booklist from './components/Booklist';
 import BookEdit from './components/BookEdit';
+import BookSell from './components/BookSell';
 
 export default function getRoutes(store) {
   const clearMessages = () => {
@@ -22,6 +23,8 @@ export default function getRoutes(store) {
        <Route path="/booklist" component={booklist} onLeave={clearMessages}/>
       <Route path="/booklist/edit/:id" component={BookEdit} onLeave={clearMessages} />
       <Route path="/Booklist/delete/:id" component={booklist} onLeave={clearMessages} />
+       <Route path="Booklist/sell/:id" component={BookSell} onLeave={clearMessages} />
+
      
       <Route path="*" component={NotFound} onLeave={clearMessages}/>
     </Route>

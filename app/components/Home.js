@@ -16,11 +16,27 @@ class Home extends React.Component {
     this.state = {
 
     }
+
+     this.sellFunc =this.sellFunc.bind(this)
   }
 
   componentDidMount() {
     this.props.dispatch(getBooksHome());
   }
+
+   sellFunc(cell, row, id) {
+   	 var holder = "/Booklist/edit/" + cell;
+
+      return <Link to={holder} className="btn btn-info btn-sm"> Sell Book </Link>;
+    }
+
+   ///onClick={this.sellFunc.bind(this, cell)} 
+
+   enumFormatter(cell, row, enumObject) {
+      return enumObject[cell];
+    }
+
+
 
 
 
@@ -45,7 +61,8 @@ class Home extends React.Component {
             <TableHeaderColumn dataField='name'>Book Name</TableHeaderColumn>
             <TableHeaderColumn dataField='author'>Author</TableHeaderColumn>
             <TableHeaderColumn dataField='price'>Price</TableHeaderColumn>
-            
+
+          <TableHeaderColumn dataField='_id' dataFormat={this.sellFunc.bind(this)}>Sell Book</TableHeaderColumn>
 
 
           </BootstrapTable>
