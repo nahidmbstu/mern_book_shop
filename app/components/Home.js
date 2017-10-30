@@ -25,7 +25,7 @@ class Home extends React.Component {
   }
 
    sellFunc(cell, row, id) {
-   	 var holder = "/Booklist/edit/" + cell;
+   	 var holder = "/Booklist/sell/" + cell;
 
       return <Link to={holder} className="btn btn-info btn-sm"> Sell Book </Link>;
     }

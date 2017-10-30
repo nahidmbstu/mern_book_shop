@@ -6,10 +6,10 @@ import { Link } from 'react-router';
 import classnames from 'classnames';
 import { getOneBook,editBook } from '../actions/BookAction';
 //--------------------------------------------------------------------------
-class BookEdit extends React.Component {
+class BookSell extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', author: '' , id : '' ,price : ''};
+    this.state = { name: '', author: '' , id : '' ,price : '' ,customer_name :'' ,customer_phone:'' };
     
     this.props.dispatch(getOneBook(this.props.params.id));
     this.handleChange = this.handleChange.bind(this);
@@ -73,6 +73,19 @@ class BookEdit extends React.Component {
                   <input type="text" name="price" id="price" className="form-control" value={this.state.price} onChange={this.handleChange.bind(this)}/>
                 </div>
               </div>
+              <div className="form-group">
+                <label htmlFor="name" className="col-sm-2">customer name </label>
+                <div className="col-sm-8">
+                  <input type="text" name="customer_name" id="customer_name" className="form-control" value={this.state.customer_name} onChange={this.handleChange.bind(this)}/>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="name" className="col-sm-2">customer phone </label>
+                <div className="col-sm-8">
+                  <input type="text" name="customer_phone" id="customer_phone" className="form-control" value={this.state.customer_phone} onChange={this.handleChange.bind(this)}/>
+                </div>
+              </div>
              
               <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-8">
@@ -97,4 +110,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(BookEdit);
+export default connect(mapStateToProps)(BookSell);
