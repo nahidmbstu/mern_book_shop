@@ -1,7 +1,7 @@
 
 
 ### Live App 
-https://floating-plains-88812.herokuapp.com/
+https://mern-book-shop.herokuapp.com/
 
 
 ### Configuration
